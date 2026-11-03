@@ -34,5 +34,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: YESMIN-AI-App
-        path: '**/build/outputs/apk/debug/*.apk'
+        path: 
+
         
