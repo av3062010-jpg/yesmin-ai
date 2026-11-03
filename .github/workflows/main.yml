@@ -36,3 +36,4 @@ jobs:
       with:
         name: YESMIN-AI-App
         path: '**/build/outputs/apk/debug/*.apk'
+        
