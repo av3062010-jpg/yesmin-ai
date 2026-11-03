@@ -22,7 +22,17 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
 
-    - name: Build APK
+    - name: Organize and Build
       run: |
-        if [ -f "./gradlew" ]; then
-          chmod +x gradle
+        mkdir -p app/src/main/java/com/yesmin/ai app/src/main
+        cp AndroidManifest.xml app/src/main/ 2>/dev/null || true
+        cp build.gradle.kts app/build.gradle.kts 2>/dev/null || true
+        cp *.kt app/src/main/java/com/yesmin/ai/ 2>/dev/null || true
+        gradle assembleDebug
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: YESMIN-AI-App
+        path: '**/build/outputs/apk/debug/*.apk'
+        
