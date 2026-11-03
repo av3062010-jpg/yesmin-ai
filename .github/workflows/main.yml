@@ -29,6 +29,11 @@ jobs:
         [ -f "AndroidManifest.xml" ] && cp AndroidManifest.xml app/src/main/ 2>/dev/null || true
         cp *.kt app/src/main/java/com/yesmin/ai/ 2>/dev/null || true
 
+        cat << 'EOF' > gradle.properties
+        android.useAndroidX=true
+        android.nonTransitiveRClass=true
+        EOF
+
         cat << 'EOF' > settings.gradle.kts
         pluginManagement {
             repositories {
