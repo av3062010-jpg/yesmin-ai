@@ -25,15 +25,4 @@ jobs:
     - name: Build APK
       run: |
         if [ -f "./gradlew" ]; then
-          chmod +x gradlew
-          ./gradlew assembleDebug
-        else
-          gradle assembleDebug
-        fi
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: YESMIN-AI-App
-        path: '**/build/outputs/apk/debug/*.apk'
-        
+          chmod +x gradle
